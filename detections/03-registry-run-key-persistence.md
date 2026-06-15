@@ -55,6 +55,14 @@ New-ItemProperty -Path "HKLM:\Software\Microsoft\Windows\CurrentVersion\Run" -Na
 
 The scheduled rule raised a High-severity incident with an attack-story graph linking the affected host. Test entries were removed after validation.
 
+**Tuned detection catching the planted persistence (and ignoring the benign ctfmon write):**
+
+![Registry persistence detection catching the planted entry](../validation/03-persistence-detection.png)
+
+**The scheduled rule raising a High-severity incident, MITRE-mapped to T1547.001:**
+
+![Registry persistence incident raised in Microsoft Defender](../validation/03-persistence-incident.png)
+
 ## Possible improvements
 
 - Tighten further by flagging only writes whose `Details` points to suspicious locations (user temp, AppData, unsigned binaries outside System32).

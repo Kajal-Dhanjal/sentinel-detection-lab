@@ -34,6 +34,14 @@ runas /user:attacker2 cmd   # repeated for attacker3..N
 
 The detection returned a single row: 25 failed attempts in one 5-minute window, with the attacker usernames captured in `TargetedAccounts`. The scheduled rule then raised an incident automatically (Credential Access category).
 
+**Detection firing on the simulated burst:**
+
+![Brute-force detection returning 25 failed attempts with attacker accounts](../validation/01-brute-force-detection.png)
+
+**The scheduled rule raising an incident automatically:**
+
+![Brute-force incident raised in Microsoft Defender](../validation/01-brute-force-incident.png)
+
 ## Tuning notes / lessons
 
 - **No clean username column.** The target account lives inside the `RenderedDescription` text blob, not a dedicated field, so it has to be extracted with regex.

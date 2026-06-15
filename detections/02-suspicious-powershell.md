@@ -37,6 +37,14 @@ powershell.exe -nop -noprofile -c "iex 'Write-Host test'"
 
 The detection returned all four launches with their command lines, correctly matched on the suspicious flags.
 
+**Detection catching the suspicious PowerShell launches:**
+
+![Suspicious PowerShell detection showing flagged command lines](../validation/02-powershell-detection.png)
+
+**The scheduled rule raising incidents (Execution category):**
+
+![Suspicious PowerShell incidents raised in Microsoft Defender](../validation/02-powershell-incident.png)
+
 ## Tuning notes / lessons
 
 - **Signature detection vs. volume detection.** Unlike the brute-force rule (which needs a *threshold* because volume is the signal), this fires on a *single* match — a known-bad flag is itself the signal. No aggregation needed.
