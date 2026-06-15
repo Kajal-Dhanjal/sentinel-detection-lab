@@ -1,0 +1,5 @@
+# Never commit anything with real environment identifiers
+*.local
+secrets*
+*credentials*
+notes-private*
