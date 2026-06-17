@@ -57,11 +57,11 @@ The scheduled rule raised a High-severity incident with an attack-story graph li
 
 **Tuned detection catching the planted persistence (and ignoring the benign ctfmon write):**
 
-![Registry persistence detection catching the planted entry](../validation/03-persistence-detection.png)
+![Registry persistence detection catching the planted entry](../evidences/03-persistence-detection.png)
 
 **The scheduled rule raising a High-severity incident, MITRE-mapped to T1547.001:**
 
-![Registry persistence incident raised in Microsoft Defender](../validation/03-persistence-incident.png)
+![Registry persistence incident raised in Microsoft Defender](../evidences/03-persistence-incident.png)
 
 ## Possible improvements
 

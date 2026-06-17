@@ -39,11 +39,11 @@ The detection returned all four launches with their command lines, correctly mat
 
 **Detection catching the suspicious PowerShell launches:**
 
-![Suspicious PowerShell detection showing flagged command lines](../validation/02-powershell-detection.png)
+![Suspicious PowerShell detection showing flagged command lines](../evidences/02-powershell-detection.png)
 
 **The scheduled rule raising incidents (Execution category):**
 
-![Suspicious PowerShell incidents raised in Microsoft Defender](../validation/02-powershell-incident.png)
+![Suspicious PowerShell incidents raised in Microsoft Defender](../evidences/02-powershell-incident.png)
 
 ## Tuning notes / lessons
 

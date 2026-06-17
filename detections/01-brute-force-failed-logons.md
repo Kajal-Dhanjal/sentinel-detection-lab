@@ -36,11 +36,11 @@ The detection returned a single row: 25 failed attempts in one 5-minute window, 
 
 **Detection firing on the simulated burst:**
 
-![Brute-force detection returning 25 failed attempts with attacker accounts](../validation/01-brute-force-detection.png)
+![Brute-force detection returning 25 failed attempts with attacker accounts](../evidences/01-brute-force-detection.png)
 
 **The scheduled rule raising an incident automatically:**
 
-![Brute-force incident raised in Microsoft Defender](../validation/01-brute-force-incident.png)
+![Brute-force incident raised in Microsoft Defender](../evidences/01-brute-force-incident.png)
 
 ## Tuning notes / lessons
 
