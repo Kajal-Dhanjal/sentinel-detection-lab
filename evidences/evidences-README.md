@@ -20,3 +20,10 @@ Place these images here (exact filenames matter — they're referenced from the 
 | `05-mfa-registration-logicapp.png` | Logic App workflow — incident trigger wired to the "Add comment to incident" action |
 | `05-mfa-registration-automation-rule.png` | Automation rule — "When incident is created" → "Run playbook" wiring |
 | `05-mfa-registration-incident.png` | MFA registration incident in Defender (Persistence, T1556.006), with the automated triage comment from the Logic App visible |
+| `06-Shadow-AI-Tooling-detection.png` | Shadow AI Tooling Execution rule configured and enabled in Sentinel |
+| `06-Shadow-AI-Tooling-incident.png` | Incident with related events showing captured `ollama.exe` process creation |
+| `07-Endpoint-to-AI-Server_detection.png` | Endpoint-to-AI-Service Data Egress rule configuration, including the documented browser-exclusion limitation in the rule description |
+| `08-Agentic-AI-Process-Lineage-Spawn-Detection.png` | Agentic AI Process Lineage rule configured, including the documented false-positive-risk caveat |
+| `08-Agentic-AI-Process-Lineage-Spawn-Incident.png` | Incident confirming the `python.exe → cmd.exe` spawn was caught |
+
+**Note on Detection 7:** there is no incident screenshot for this detection by design — the writeup documents a telemetry-scope finding and rule configuration, not an incident walkthrough.

@@ -6,7 +6,7 @@ This repo documents the detections I've written, the attacks I simulated to vali
 
 ## Why this exists
 
-Most "home SOC lab" projects stop at "I connected logs to a SIEM." This one focuses on the part that actually matters in a SOC: **writing detections that catch real attacker behavior while staying quiet on legitimate activity.** Every detection here was validated on both sides — it fires on a simulated attack, and it does *not* fire on benign noise.
+Most "home SOC lab" projects stop at "I connected logs to a SIEM." This one focuses on the part that actually matters in a SOC: **writing detections that catch real attacker behavior while staying quiet on legitimate activity.** Every detection here was validated on both sides where possible — it fires on a simulated attack, and ideally it does *not* fire on benign noise. Where that second half hasn't been done yet (detections 6 and 8), the writeup says so explicitly rather than implying a polish level that isn't there.
 
 ## Architecture
 
@@ -56,8 +56,13 @@ Log Analytics Workspace ──► Microsoft Sentinel
 | 3 | [Registry Run-Key Persistence](detections/03-registry-run-key-persistence.md) | T1547.001 | Persistence | Sysmon (EID 13) |
 | 4 | [Reconnaissance Command Burst](detections/04-reconnaissance-command-burst.md) | T1057, T1082, T1016 | Discovery | Sysmon (EID 1) |
 | 5 | [Suspicious MFA Registration Following Sign-In from Untrusted IP](detections/05-suspicious-mfa-registration.md) | T1556.006 | Persistence | Entra ID (SignInLogs + AuditLogs) |
+| 6 | [Shadow AI Tooling Execution](detections/06-shadow-ai-tooling-execution.md) | T1588.002 | Resource Development | Sysmon (EID 1) |
+| 7 | [Endpoint-to-AI-Service Data Egress](detections/07-endpoint-to-ai-service-data-egress.md) | T1567 | Exfiltration | Sysmon (EID 3) |
+| 8 | [Agentic AI Process Lineage: Shell Spawn](detections/08-agentic-ai-process-lineage-shell-spawn.md) | T1059 | Execution | Sysmon (EID 1) |
 
-Each detection file documents: the threat, the KQL, the simulated attack used to validate it, false positives encountered and how they were tuned out, and the MITRE mapping.
+Each detection file documents: the threat, the KQL, the simulated attack used to validate it, false positives encountered (or honestly flagged as not-yet-tested) and how they were tuned out, and the MITRE mapping.
+
+**A note on detections 6–8:** these extend the lab into an AI-threat-detection track — governance and visibility gaps created by AI tooling on the endpoint, rather than classic attacker tradecraft. Where the MITRE mapping is an imperfect fit for that shift (6 and 7 especially), each writeup says so directly instead of forcing the framing.
 
 ## Detection-to-response
 
@@ -75,6 +80,8 @@ Detection 5 extends the lab beyond "alert fires" into automated first response: 
 - **Closing the loop matters more than another detection.** Detection 5 is the first one here that doesn't stop at "incident created" — it triggers an automated response, which is a meaningfully different skill from writing the query.
 - **Pick the reliable action over the impressive one.** A flaky UI (Sentinel watchlists) initially looked like the right place to automate a block-list update. I scoped the automation down to a smaller, reliable action instead of shipping something that looked good in a demo but would fail in practice.
 - **Dedup boundaries matter.** A scheduled query's `summarize`-based dedup only protects within a single run's lookback window — it doesn't prevent re-alerting across runs. Caught this from real duplicate incidents during testing, not from reading the docs.
+- **A working detection and a tuned detection are different claims.** Detections 6 and 8 are validated true-positive catches with known, documented false-positive risk — not yet stress-tested at scale. The repo states that distinction rather than blurring it.
+- **Know your telemetry's blind spots before trusting a detection's scope.** Detection 7's redesign came from discovering that the Sysmon baseline config silently excludes browser processes from network logging — a real limitation now documented in the rule itself, not buried.
 
 ## Disclaimer
 
