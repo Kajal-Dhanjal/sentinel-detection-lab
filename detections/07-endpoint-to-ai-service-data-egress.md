@@ -54,8 +54,7 @@ Saved as a scheduled Analytics Rule, with the browser-exclusion limitation writt
 No incident screenshot for this detection — by design, since the focus here is the rule configuration and the documented telemetry limitation rather than an incident walkthrough.
 
 **Detection rule configuration showing the description with the documented scope limitation:**
-
-[![Endpoint-to-AI-Service Data Egress rule configured with browser-exclusion limitation documented in the description](https://github.com/Kajal-Dhanjal/sentinel-detection-lab/raw/main/evidences/0evidences/07-Endpoint-to-AI-Server_detection.png)](/Kajal-Dhanjal/sentinel-detection-lab/blob/main/evidences/07-Endpoint-to-AI-Server_detection.png)
+[![Endpoint-to-AI-Service Data Egress rule configured with browser-exclusion limitation documented in the description](https://github.com/Kajal-Dhanjal/sentinel-detection-lab/raw/main/evidences/07-Endpoint-to-AI-Server_detection.png)](/Kajal-Dhanjal/sentinel-detection-lab/blob/main/evidences/07-Endpoint-to-AI-Server_detection.png)
 
 ## Possible improvements
 
